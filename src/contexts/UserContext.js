@@ -20,16 +20,16 @@ export var useUser = function() {
 var USERS = [
   {
     id: 'user1',
-    username: 'harsha',
-    password: 'harsha123',
+    username: 'Harsha',
+    password: 'Harsha@108',
     displayName: 'Harsha',
     emoji: '🌿',
   },
   {
     id: 'user2',
-    username: 'friend',
-    password: 'friend123',
-    displayName: 'Friend',
+    username: 'Siri',
+    password: 'Siritinku@2',
+    displayName: 'Siri',
     emoji: '🌱',
   },
 ];
