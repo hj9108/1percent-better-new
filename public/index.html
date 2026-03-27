@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2D5A3D" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" 
+      rel="stylesheet"
+    >
+    <title>1%Better 🌿</title>
+  </head>
+  <body>
+    <div id="loading-screen" style="
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:#F5E6D3;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      font-family:serif;
+    ">
+      <div style="font-size:3rem;margin-bottom:16px;">🌿</div>
+      <h2 style="color:#2D5A3D;margin-bottom:8px;font-size:1.5rem;">1%Better</h2>
+      <p style="color:#8A7E6E;font-size:0.9rem;">Loading your garden...</p>
+    </div>
+
+    <div id="root"></div>
+
+    <script>
+      // Your Cloudinary config
+      window.CLOUDINARY_CONFIG = {
+        cloudName: 'dljnagk6s',
+        uploadPreset: '1percent_better',
+      };
+
+      // Your Firebase config
+      window.FIREBASE_CONFIG = {
+        apiKey: "AIzaSyCFKId_Mwkhd4jmlgPK7E5CSVWepKU3ZYI",
+        authDomain: "xbetter-7a160.firebaseapp.com",
+        projectId: "xbetter-7a160",
+        storageBucket: "xbetter-7a160.firebasestorage.app",
+        messagingSenderId: "722640191464",
+        appId: "1:722640191464:web:c971217d5a60563d6c6e5d",
+      };
+
+      window.firebaseReady = false;
+
+      function loadScript(src, onload) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = onload;
+        s.onerror = function() {
+          console.error('Failed to load:', src);
+          onload();
+        };
+        document.head.appendChild(s);
+      }
+
+      function initFirebase() {
+        try {
+          firebase.initializeApp(window.FIREBASE_CONFIG);
+          window.db = firebase.firestore();
+          window.firebaseReady = true;
+          console.log('✅ Firebase ready');
+        } catch(e) {
+          console.error('Firebase init error:', e);
+          window.firebaseReady = true;
+        }
+
+        var loading = document.getElementById('loading-screen');
+        if (loading) {
+          loading.style.opacity = '0';
+          loading.style.transition = 'opacity 0.5s';
+          setTimeout(function() {
+            loading.style.display = 'none';
+          }, 500);
+        }
+      }
+
+      loadScript(
+        'https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js',
+        function() {
+          loadScript(
+            'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js',
+            function() {
+              initFirebase();
+            }
+          );
+        }
+      );
+    </script>
+  </body>
+</html>

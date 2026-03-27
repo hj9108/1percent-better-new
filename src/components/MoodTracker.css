@@ -1,0 +1,672 @@
+/* ============================================
+   MOOD TRACKER STYLES
+   ============================================ */
+
+   .mood-page {
+    animation: fadeInUp 0.5s ease;
+  }
+  
+  /* ---------- HEADER ---------- */
+  .mood-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .mood-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .mood-title-icon {
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .mood-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--text);
+  }
+  
+  .mood-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  
+  /* ---------- MOOD WHEEL SECTION ---------- */
+  .mood-wheel-section {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 36px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .mood-wheel-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 36px;
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .mood-wheel-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .mood-wheel-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+  
+  /* ---------- THE WHEEL ---------- */
+  .mood-wheel-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 28px;
+  }
+  
+  .mood-wheel {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    position: relative;
+    background: var(--bg);
+    border: 3px solid var(--border);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+  }
+  
+  .mood-wheel:hover {
+    transform: scale(1.02);
+  }
+  
+  .mood-wheel-segment {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .mood-wheel-emoji-btn {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    z-index: 5;
+  }
+  
+  .mood-wheel-emoji-btn:hover {
+    transform: scale(1.25);
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+  }
+  
+  .mood-wheel-emoji-btn.selected {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(45, 90, 61, 0.2), var(--shadow-lg);
+    transform: scale(1.2);
+    z-index: 10;
+  }
+  
+  .mood-wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+    box-shadow: var(--shadow-md);
+    color: white;
+  }
+  
+  .mood-wheel-center-emoji {
+    font-size: 2rem;
+    line-height: 1;
+  }
+  
+  .mood-wheel-center-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+  
+  /* ---------- MOOD NOTE ---------- */
+  .mood-note-section {
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .mood-note-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--input-bg);
+    border: 1.5px solid var(--input-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text);
+    resize: none;
+    transition: all var(--transition-normal);
+  }
+  
+  .mood-note-input:focus {
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.12);
+  }
+  
+  .mood-save-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .mood-save-btn:hover {
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  .mood-save-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .mood-saved-message {
+    text-align: center;
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: rgba(45, 90, 61, 0.08);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    animation: fadeInUp 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  /* ---------- TODAY SUMMARY CARD ---------- */
+  .mood-today-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    flex: 1;
+    min-width: 280px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .mood-today-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .mood-today-display {
+    text-align: center;
+    padding: 24px;
+    background: var(--bg);
+    border-radius: var(--radius-lg);
+    margin-bottom: 20px;
+  }
+  
+  .mood-today-emoji {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 8px;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .mood-today-label {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  
+  .mood-today-time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  
+  .mood-today-note {
+    padding: 16px;
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--primary);
+  }
+  
+  .mood-streak-info {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .mood-streak-item {
+    flex: 1;
+    text-align: center;
+    padding: 14px;
+    background: var(--bg);
+    border-radius: var(--radius-md);
+  }
+  
+  .mood-streak-value {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  .mood-streak-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  
+  /* ---------- MOOD HISTORY ---------- */
+  .mood-history {
+    margin-top: 36px;
+  }
+  
+  .mood-history-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* ---------- MOOD CALENDAR ---------- */
+  .mood-calendar {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .mood-calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .mood-calendar-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .mood-calendar-nav {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .mood-calendar-nav-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text);
+    transition: all var(--transition-fast);
+  }
+  
+  .mood-calendar-nav-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  
+  .mood-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+  
+  .mood-calendar-day-header {
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    padding: 6px 0;
+    text-transform: uppercase;
+  }
+  
+  .mood-calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    position: relative;
+    transition: all var(--transition-fast);
+    cursor: default;
+    background: var(--bg);
+  }
+  
+  .mood-calendar-day.has-mood {
+    cursor: pointer;
+  }
+  
+  .mood-calendar-day.has-mood:hover {
+    transform: scale(1.15);
+    z-index: 5;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .mood-calendar-day.today {
+    border: 2px solid var(--primary);
+  }
+  
+  .mood-calendar-day.empty {
+    background: transparent;
+  }
+  
+  .mood-calendar-day-emoji {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  
+  .mood-calendar-day-num {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  
+  /* ---------- MOOD TIMELINE ---------- */
+  .mood-timeline {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  
+  .mood-timeline-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .mood-timeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .mood-timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+  
+  .mood-timeline-item:hover {
+    background: var(--bg-secondary);
+    transform: translateX(4px);
+  }
+  
+  .mood-timeline-emoji {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .mood-timeline-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .mood-timeline-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .mood-timeline-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  
+  .mood-timeline-note {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  
+  /* ---------- MOOD CHART ---------- */
+  .mood-chart-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .mood-chart-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .mood-chart-container {
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding: 0 8px;
+  }
+  
+  .mood-chart-bar-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  
+  .mood-chart-bar {
+    width: 100%;
+    max-width: 40px;
+    border-radius: 6px 6px 0 0;
+    transition: height 0.8s ease;
+    min-height: 4px;
+  }
+  
+  .mood-chart-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .mood-chart-count {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .mood-wheel-section {
+      flex-direction: column;
+    }
+  
+    .mood-wheel-card {
+      min-width: unset;
+      width: 100%;
+    }
+  
+    .mood-today-card {
+      min-width: unset;
+      width: 100%;
+    }
+  
+    .mood-wheel-container {
+      width: 240px;
+      height: 240px;
+    }
+  
+    .mood-wheel {
+      width: 240px;
+      height: 240px;
+    }
+  
+    .mood-wheel-emoji-btn {
+      width: 48px;
+      height: 48px;
+      font-size: 1.4rem;
+    }
+  
+    .mood-wheel-center {
+      width: 65px;
+      height: 65px;
+    }
+  
+    .mood-wheel-center-emoji {
+      font-size: 1.6rem;
+    }
+  
+    .mood-calendar-grid {
+      gap: 4px;
+    }
+  
+    .mood-calendar-day-emoji {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mood-wheel-container {
+      width: 220px;
+      height: 220px;
+    }
+  
+    .mood-wheel {
+      width: 220px;
+      height: 220px;
+    }
+  
+    .mood-wheel-emoji-btn {
+      width: 42px;
+      height: 42px;
+      font-size: 1.2rem;
+    }
+  
+    .mood-wheel-center {
+      width: 56px;
+      height: 56px;
+    }
+  
+    .mood-wheel-center-emoji {
+      font-size: 1.4rem;
+    }
+  
+    .mood-streak-info {
+      flex-direction: column;
+    }
+  }

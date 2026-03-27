@@ -1,0 +1,558 @@
+/* ============================================
+   HABITS TRACKER STYLES
+   ============================================ */
+
+   .habits-page {
+    animation: fadeInUp 0.5s ease;
+  }
+  
+  /* ---------- HEADER ---------- */
+  .habits-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  
+  .habits-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .habits-title-icon {
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .habits-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--text);
+  }
+  
+  .habits-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  
+  /* ---------- ADD BUTTON ---------- */
+  .habits-add-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .habits-add-btn:hover {
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  .habits-add-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* ---------- STREAK OVERVIEW ---------- */
+  .habits-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  
+  .habits-overview-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+  
+  .habits-overview-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .habits-overview-value {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  .habits-overview-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  
+  .habits-overview-emoji {
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 6px;
+  }
+  
+  /* ---------- DATE NAVIGATION ---------- */
+  .habits-date-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 14px 24px;
+  }
+  
+  .habits-date-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text);
+    transition: all var(--transition-fast);
+    font-size: 1rem;
+  }
+  
+  .habits-date-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  
+  .habits-date-display {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    min-width: 200px;
+    text-align: center;
+  }
+  
+  .habits-date-today {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .habits-date-today:hover {
+    text-decoration: underline;
+  }
+  
+  /* ---------- HABITS LIST ---------- */
+  .habits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .habit-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all var(--transition-normal);
+  }
+  
+  .habit-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+    transform: translateX(4px);
+  }
+  
+  .habit-card.checked {
+    background: linear-gradient(
+      135deg,
+      rgba(45, 90, 61, 0.04),
+      rgba(45, 90, 61, 0.02)
+    );
+    border-color: var(--primary);
+  }
+  
+  /* ---------- CHECKBOX ---------- */
+  .habit-checkbox {
+    width: 32px;
+    height: 32px;
+    border: 2.5px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+    background: var(--input-bg);
+    font-size: 1rem;
+    color: transparent;
+  }
+  
+  .habit-checkbox:hover {
+    border-color: var(--primary);
+    transform: scale(1.1);
+  }
+  
+  .habit-checkbox.checked {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-color: var(--primary);
+    color: white;
+    animation: checkBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  @keyframes checkBounce {
+    0% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* ---------- HABIT INFO ---------- */
+  .habit-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .habit-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: all var(--transition-fast);
+  }
+  
+  .habit-name.completed {
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+  
+  .habit-category {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  
+  /* ---------- STREAK & PLANT ---------- */
+  .habit-streak-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  
+  .habit-plant {
+    font-size: 1.8rem;
+    transition: transform var(--transition-normal);
+  }
+  
+  .habit-plant:hover {
+    transform: scale(1.3) rotate(-10deg);
+  }
+  
+  .habit-streak-info {
+    text-align: center;
+    min-width: 50px;
+  }
+  
+  .habit-streak-count {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+  }
+  
+  .habit-streak-label {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  
+  .habit-best-streak {
+    font-size: 0.68rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  
+  /* ---------- HABIT ACTIONS ---------- */
+  .habit-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  
+  .habit-action-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+  }
+  
+  .habit-action-btn:hover {
+    background: var(--bg-secondary);
+    color: var(--text);
+  }
+  
+  .habit-action-btn.delete:hover {
+    background: rgba(198, 123, 92, 0.1);
+    color: var(--danger);
+  }
+  
+  /* ---------- CONFETTI BURST ---------- */
+  .habit-confetti {
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .confetti-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: confetti 0.8s ease forwards;
+  }
+  
+  /* ---------- ADD HABIT MODAL ---------- */
+  .habit-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .habit-color-picker {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .habit-color-option {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .habit-color-option:hover {
+    transform: scale(1.2);
+  }
+  
+  .habit-color-option.selected {
+    border-color: var(--text);
+    transform: scale(1.15);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .habit-icon-picker {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .habit-icon-option {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background: var(--bg);
+  }
+  
+  .habit-icon-option:hover {
+    border-color: var(--primary);
+    transform: scale(1.1);
+  }
+  
+  .habit-icon-option.selected {
+    border-color: var(--primary);
+    background: rgba(45, 90, 61, 0.08);
+    transform: scale(1.1);
+  }
+  
+  /* ---------- CALENDAR HEATMAP ---------- */
+  .habits-heatmap {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-top: 28px;
+  }
+  
+  .heatmap-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    max-width: 320px;
+  }
+  
+  .heatmap-day-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-weight: 600;
+    padding: 4px 0;
+  }
+  
+  .heatmap-cell {
+    aspect-ratio: 1;
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    transition: all var(--transition-fast);
+    cursor: default;
+    position: relative;
+  }
+  
+  .heatmap-cell:hover {
+    transform: scale(1.3);
+    z-index: 10;
+  }
+  
+  .heatmap-cell.level-1 {
+    background: rgba(45, 90, 61, 0.2);
+  }
+  
+  .heatmap-cell.level-2 {
+    background: rgba(45, 90, 61, 0.4);
+  }
+  
+  .heatmap-cell.level-3 {
+    background: rgba(45, 90, 61, 0.6);
+  }
+  
+  .heatmap-cell.level-4 {
+    background: rgba(45, 90, 61, 0.85);
+  }
+  
+  .heatmap-cell.today {
+    border: 2px solid var(--gold);
+  }
+  
+  .heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+  
+  .heatmap-legend-cell {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+  }
+  
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .habits-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .habit-card {
+      padding: 16px;
+      flex-wrap: wrap;
+    }
+  
+    .habit-streak-section {
+      width: 100%;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-light);
+      margin-top: 4px;
+    }
+  
+    .habits-overview {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .habits-date-nav {
+      padding: 10px 16px;
+    }
+  
+    .habits-date-display {
+      font-size: 0.95rem;
+      min-width: 160px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .habits-overview {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+  
+    .habits-overview-card {
+      padding: 14px;
+    }
+  
+    .habits-overview-value {
+      font-size: 1.4rem;
+    }
+  
+    .habit-actions {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+    }
+  
+    .habit-card {
+      position: relative;
+      padding-right: 80px;
+    }
+  }

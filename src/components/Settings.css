@@ -1,0 +1,302 @@
+/* ============================================
+   SETTINGS STYLES
+   ============================================ */
+
+   .settings-page {
+    animation: fadeInUp 0.5s ease;
+    max-width: 700px;
+  }
+  
+  /* ---------- HEADER ---------- */
+  .settings-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  
+  .settings-title-icon {
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .settings-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--text);
+  }
+  
+  .settings-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  
+  /* ---------- SECTIONS ---------- */
+  .settings-section {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .settings-section-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  /* ---------- SETTING ROW ---------- */
+  .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .settings-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .settings-row-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .settings-row-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  
+  .settings-row-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  
+  /* ---------- THEME TOGGLE ---------- */
+  .settings-theme-toggle {
+    width: 52px;
+    height: 28px;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background var(--transition-normal);
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+  
+  .settings-theme-toggle.dark {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+  
+  .settings-theme-knob {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .settings-theme-toggle.dark .settings-theme-knob {
+    transform: translateX(24px);
+  }
+  
+  /* ---------- PROFILE CARD ---------- */
+  .settings-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+  }
+  
+  .settings-profile-avatar {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .settings-profile-info {
+    flex: 1;
+  }
+  
+  .settings-profile-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .settings-profile-username {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  
+  .settings-profile-badge {
+    padding: 4px 12px;
+    background: rgba(45, 90, 61, 0.1);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  
+  /* ---------- DATA SECTION ---------- */
+  .settings-data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .settings-data-card {
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .settings-data-emoji {
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .settings-data-value {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  
+  .settings-data-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  
+  /* ---------- EXPORT BUTTON ---------- */
+  .settings-export-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .settings-export-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(45, 90, 61, 0.04);
+  }
+  
+  /* ---------- ABOUT SECTION ---------- */
+  .settings-about {
+    text-align: center;
+    padding: 24px;
+  }
+  
+  .settings-about-logo {
+    font-size: 3rem;
+    margin-bottom: 8px;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .settings-about-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }
+  
+  .settings-about-tagline {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-family: var(--font-display);
+    margin-bottom: 12px;
+  }
+  
+  .settings-about-version {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  
+  .settings-about-heart {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .settings-section {
+      padding: 20px;
+    }
+  
+    .settings-data-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .settings-profile-card {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .settings-data-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+  
+    .settings-data-card {
+      padding: 12px;
+    }
+  }

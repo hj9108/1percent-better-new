@@ -1,0 +1,593 @@
+/* ============================================
+   DASHBOARD STYLES
+   ============================================ */
+
+   .dashboard {
+    animation: fadeInUp 0.5s ease;
+  }
+  
+  /* ---------- GREETING ---------- */
+  .dash-greeting {
+    margin-bottom: 32px;
+  }
+  
+  .dash-greeting-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .dash-hello {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .dash-hello-emoji {
+    font-size: 2.2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .dash-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    background: var(--card);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+  }
+  
+  /* ---------- QUOTE CARD ---------- */
+  .dash-quote-card {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: var(--radius-xl);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md), 0 0 30px rgba(45, 90, 61, 0.15);
+  }
+  
+  .dash-quote-card::before {
+    content: '❝';
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    font-size: 6rem;
+    opacity: 0.1;
+    font-family: serif;
+    line-height: 1;
+  }
+  
+  .dash-quote-card::after {
+    content: '🌿';
+    position: absolute;
+    bottom: -5px;
+    right: 20px;
+    font-size: 4rem;
+    opacity: 0.1;
+  }
+  
+  .dash-quote-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .dash-quote-text {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    color: white;
+  }
+  
+  .dash-quote-author {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ---------- STATS GRID ---------- */
+  .dash-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  
+  .dash-stat-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all var(--transition-normal);
+    cursor: default;
+  }
+  
+  .dash-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+  }
+  
+  .dash-stat-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  
+  .dash-stat-icon-green {
+    background: rgba(45, 90, 61, 0.1);
+    color: var(--primary);
+  }
+  
+  .dash-stat-icon-accent {
+    background: rgba(198, 123, 92, 0.1);
+    color: var(--accent);
+  }
+  
+  .dash-stat-icon-gold {
+    background: rgba(212, 168, 67, 0.1);
+    color: var(--gold);
+  }
+  
+  .dash-stat-icon-info {
+    background: rgba(91, 143, 168, 0.1);
+    color: var(--info);
+  }
+  
+  .dash-stat-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .dash-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  
+  .dash-stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  
+  /* ---------- TWO COLUMN LAYOUT ---------- */
+  .dash-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+  
+  /* ---------- MOOD QUICK SET ---------- */
+  .dash-mood-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  
+  .dash-section-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .dash-mood-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .dash-mood-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 14px;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-width: 70px;
+  }
+  
+  .dash-mood-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+  }
+  
+  .dash-mood-btn.selected {
+    border-color: var(--primary);
+    background: rgba(45, 90, 61, 0.08);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .dash-mood-emoji {
+    font-size: 1.6rem;
+  }
+  
+  .dash-mood-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  
+  .dash-mood-saved {
+    font-size: 0.82rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: fadeInUp 0.3s ease;
+  }
+  
+  /* ---------- TODAY'S HABITS ---------- */
+  .dash-habits-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  
+  .dash-habit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  
+  .dash-habit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+  
+  .dash-habit-check {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    color: transparent;
+    background: var(--input-bg);
+  }
+  
+  .dash-habit-check:hover {
+    border-color: var(--primary);
+  }
+  
+  .dash-habit-check.checked {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+  }
+  
+  .dash-habit-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    flex: 1;
+  }
+  
+  .dash-habit-name.completed {
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+  
+  .dash-habit-streak {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .dash-view-all-btn {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--primary);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+    text-align: center;
+  }
+  
+  .dash-view-all-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  
+  /* ---------- RECENT ENTRIES ---------- */
+  .dash-recent-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 28px;
+  }
+  
+  .dash-recent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .dash-recent-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+  }
+  
+  .dash-recent-item:hover {
+    background: var(--bg-secondary);
+    transform: translateX(4px);
+  }
+  
+  .dash-recent-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .dash-recent-icon-journal {
+    background: rgba(45, 90, 61, 0.1);
+  }
+  
+  .dash-recent-icon-idea {
+    background: rgba(212, 168, 67, 0.1);
+  }
+  
+  .dash-recent-icon-gratitude {
+    background: rgba(198, 123, 92, 0.1);
+  }
+  
+  .dash-recent-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .dash-recent-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .dash-recent-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  
+  /* ---------- GOALS PROGRESS ---------- */
+  .dash-goals-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  
+  .dash-goal-item {
+    margin-bottom: 16px;
+  }
+  
+  .dash-goal-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .dash-goal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .dash-goal-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .dash-goal-percent {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  
+  .dash-goal-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .dash-goal-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    transition: width 1s ease;
+  }
+  
+  .dash-goal-deadline {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  
+  /* ---------- GARDEN VISUAL ---------- */
+  .dash-garden-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    text-align: center;
+  }
+  
+  .dash-garden {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+  
+  .dash-garden-plant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .dash-garden-emoji {
+    font-size: 2rem;
+    transition: transform var(--transition-normal);
+  }
+  
+  .dash-garden-emoji:hover {
+    transform: scale(1.3) rotate(-5deg);
+  }
+  
+  .dash-garden-name {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    max-width: 60px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .dash-garden-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 8px;
+  }
+  
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .dash-two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dash-hello {
+      font-size: 1.5rem;
+    }
+  
+    .dash-hello-emoji {
+      font-size: 1.8rem;
+    }
+  
+    .dash-quote-card {
+      padding: 22px;
+    }
+  
+    .dash-quote-text {
+      font-size: 1.05rem;
+    }
+  
+    .dash-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .dash-stat-card {
+      padding: 16px;
+    }
+  
+    .dash-stat-value {
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dash-stats-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+  
+    .dash-stat-card {
+      padding: 14px;
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+    }
+  
+    .dash-greeting-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }

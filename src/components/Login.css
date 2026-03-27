@@ -1,0 +1,467 @@
+/* ============================================
+   LOGIN SCREEN
+   ============================================ */
+
+   .login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  /* ---------- BACKGROUND DECORATION ---------- */
+  .login-bg-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .login-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.06;
+  }
+  
+  .login-bg-circle:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    background: var(--primary);
+    top: -100px;
+    right: -100px;
+    animation: float 20s ease-in-out infinite;
+  }
+  
+  .login-bg-circle:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    bottom: -80px;
+    left: -80px;
+    animation: float 25s ease-in-out infinite reverse;
+  }
+  
+  .login-bg-circle:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    background: var(--gold);
+    top: 50%;
+    left: 10%;
+    animation: float 18s ease-in-out infinite 3s;
+  }
+  
+  .login-bg-leaf {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.08;
+    animation: floatLeaf 30s linear infinite;
+  }
+  
+  .login-bg-leaf:nth-child(4) {
+    left: 15%;
+    animation-delay: 0s;
+    animation-duration: 28s;
+  }
+  
+  .login-bg-leaf:nth-child(5) {
+    left: 45%;
+    animation-delay: 5s;
+    animation-duration: 32s;
+  }
+  
+  .login-bg-leaf:nth-child(6) {
+    left: 75%;
+    animation-delay: 10s;
+    animation-duration: 26s;
+  }
+  
+  .login-bg-leaf:nth-child(7) {
+    left: 90%;
+    animation-delay: 15s;
+    animation-duration: 35s;
+  }
+  
+  /* ---------- LOGIN CARD ---------- */
+  .login-card {
+    background: var(--card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 10;
+    animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  /* ---------- LOGO AREA ---------- */
+  .login-logo {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  
+  .login-plant-icon {
+    font-size: 3.5rem;
+    display: inline-block;
+    animation: float 4s ease-in-out infinite;
+    margin-bottom: 12px;
+  }
+  
+  .login-app-name {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }
+  
+  .login-tagline {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-family: var(--font-display);
+  }
+  
+  /* ---------- GROWING PLANT ANIMATION ---------- */
+  .login-growing-plant {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+    height: 60px;
+    align-items: flex-end;
+  }
+  
+  .plant-pot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .plant-stem {
+    width: 3px;
+    background: linear-gradient(to top, var(--primary-dark), var(--primary-light));
+    border-radius: 2px;
+    transform-origin: bottom center;
+    animation: growStem 2s ease-out forwards;
+    height: 0;
+  }
+  
+  @keyframes growStem {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 35px;
+    }
+  }
+  
+  .plant-leaves-container {
+    display: flex;
+    gap: 0;
+    margin-bottom: -2px;
+    opacity: 0;
+    animation: showLeaves 0.5s ease forwards 1.5s;
+  }
+  
+  @keyframes showLeaves {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .plant-leaf-left {
+    font-size: 1.2rem;
+    transform: scaleX(-1) rotate(-30deg);
+    animation: leafGrowLeft 0.6s ease forwards 1.8s;
+    opacity: 0;
+  }
+  
+  .plant-leaf-right {
+    font-size: 1.2rem;
+    transform: rotate(-30deg);
+    animation: leafGrowRight 0.6s ease forwards 2s;
+    opacity: 0;
+  }
+  
+  @keyframes leafGrowLeft {
+    from {
+      opacity: 0;
+      transform: scaleX(-1) rotate(0deg) scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: scaleX(-1) rotate(-30deg) scale(1);
+    }
+  }
+  
+  @keyframes leafGrowRight {
+    from {
+      opacity: 0;
+      transform: rotate(0deg) scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(-30deg) scale(1);
+    }
+  }
+  
+  .plant-pot-base {
+    width: 28px;
+    height: 16px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border-radius: 0 0 8px 8px;
+    position: relative;
+  }
+  
+  .plant-pot-rim {
+    width: 34px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  .plant-soil {
+    width: 26px;
+    height: 4px;
+    background: #5a3a2a;
+    border-radius: 50%;
+    margin-bottom: -1px;
+  }
+  
+  /* ---------- FORM ---------- */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .login-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .login-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .login-label-icon {
+    font-size: 1rem;
+    color: var(--primary);
+  }
+  
+  .login-input {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--input-bg);
+    border: 2px solid var(--input-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text);
+    transition: all var(--transition-normal);
+  }
+  
+  .login-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(45, 90, 61, 0.1);
+  }
+  
+  .login-input::placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  
+  .login-input-password-wrapper {
+    position: relative;
+  }
+  
+  .login-password-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 4px;
+    transition: color var(--transition-fast);
+  }
+  
+  .login-password-toggle:hover {
+    color: var(--primary);
+  }
+  
+  /* ---------- LOGIN BUTTON ---------- */
+  .login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: var(--text-on-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+  
+  .login-btn:hover::before {
+    left: 100%;
+  }
+  
+  .login-btn:hover {
+    box-shadow: var(--shadow-md), 0 0 20px rgba(45, 90, 61, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .login-btn:active {
+    transform: translateY(0);
+  }
+  
+  .login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .login-btn-loading {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+  
+  /* ---------- ERROR MESSAGE ---------- */
+  .login-error {
+    background: rgba(198, 123, 92, 0.1);
+    border: 1px solid rgba(198, 123, 92, 0.3);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--danger);
+    font-weight: 500;
+    animation: fadeInUp 0.3s ease;
+  }
+  
+  .login-error-icon {
+    font-size: 1.1rem;
+  }
+  
+  /* ---------- SUCCESS ANIMATION ---------- */
+  .login-success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(45, 90, 61, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .login-success-icon {
+    font-size: 4rem;
+    animation: bloom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin-bottom: 16px;
+  }
+  
+  .login-success-text {
+    color: white;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    animation: fadeInUp 0.5s ease 0.3s both;
+  }
+  
+  /* ---------- FOOTER ---------- */
+  .login-footer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .login-footer-quote {
+    font-style: italic;
+    font-family: var(--font-display);
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+  }
+  
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 480px) {
+    .login-card {
+      padding: 36px 24px;
+      border-radius: var(--radius-lg);
+    }
+  
+    .login-app-name {
+      font-size: 1.8rem;
+    }
+  
+    .login-plant-icon {
+      font-size: 2.8rem;
+    }
+  }
